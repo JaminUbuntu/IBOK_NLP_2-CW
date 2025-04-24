@@ -1,6 +1,6 @@
 7120CEM - Natural Language Processing (Part 2)
 
-# 🤖 Robustness of Transformer-Based Models in Noisy Sentiment Analysis  
+# 🤖 Robustness of Transformer-Based Models Against Linguistic Noise and Adversarial Inputs in Social Media Sentiment Tasks
 _Deep Learning Evaluation with BERT vs BiLSTM on Twitter Data_
 
 ---

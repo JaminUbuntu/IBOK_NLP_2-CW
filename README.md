@@ -111,7 +111,7 @@ This project was developed for the **7120CEM – Natural Language Processing** m
 
 **Author:** Benjamin Ibok  
 **Institution:** Coventry University  
-**Email:** ibokb@coventry.ac.uk  
+**University Email:** ibokb@coventry.ac.uk  
 **Personal Email:** benjaminsibok@gmail.com  
 
 ---

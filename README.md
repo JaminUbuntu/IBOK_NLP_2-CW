@@ -1,4 +1,4 @@
-7120CEM - Natural Language Processing
+7120CEM - Natural Language Processing (Part 2)
 
 # 🤖 Robustness of Transformer-Based Models in Noisy Sentiment Analysis  
 _Deep Learning Evaluation with BERT vs BiLSTM on Twitter Data_

@@ -20,43 +20,37 @@ Transformer models like **BERT** are leading the NLP space — but how do they h
 
 ## 🛠️ Technologies Used
 
-| Component        | Tool/Library            |
-|------------------|-------------------------|
-| Language         | Python                  |
-| Frameworks       | TensorFlow, PyTorch     |
-| DL Tools         | HuggingFace Transformers |
-| Preprocessing    | nlpaug, sklearn         |
-| Visualizations   | seaborn, matplotlib     |
-| Tracking         | wandb                   |
-| Embeddings       | GloVe (100d)            |
-| Model Types      | BiLSTM, BERT            |
+- **Programming Language:** Python
+- **Frameworks:** TensorFlow, PyTorch
+- **Libraries:** HuggingFace Transformers, sklearn, wandb, nlpaug
+- **Visualization:** seaborn, matplotlib
+- **Embeddings:** GloVe (100d)
 
 ---
 
 ## 📁 Dataset
 
-| Source      | Type          | Details                                       |
-|-------------|---------------|-----------------------------------------------|
-| SemEval-2017| Train/Test    | 70/20 split for BERT/BiLSTM training/testing  |
-| SemEval-2015| Validation    | For early-stopping and robustness tuning      |
-| Noise       | Injected      | Simulated with `nlpaug` (typos & synonyms)    |
-| 📎 [Dataset Link](https://github.com/leelaylay/TweetSemEval/tree/master/dataset)
+The dataset includes two real-world Twitter corpora:
+
+- **SemEval-2017** (70% Train / 20% Test)
+- **SemEval-2015** (Validation)
+- **Noise:** Applied using `nlpaug.keyboardAug` and synonym replacement.
+
+[Dataset Link](https://github.com/leelaylay/TweetSemEval/tree/master/dataset)
 
 ---
 
 ## 🔬 Methodology
 
-1. **Preprocessing:** Text cleaning, label encoding, tokenization.
-2. **Modeling:**
-   - **BiLSTM:** Static GloVe Embeddings, TensorFlow/Keras, Dropout.
-   - **BERT:** Pretrained `bert-base-uncased`, fine-tuned using HuggingFace.
-3. **Evaluation Metrics:** Accuracy, Precision, Recall, F1-score, ROC-AUC.
-4. **Noise Testing:** Augmentations using `nlpaug.keyboardAug` and synonym injection.
-5. **Class Handling:** Label imbalance solved using **class weights**.
+1. **Preprocessing:** Clean text, tokenize, label encode.
+2. **Models:** BiLSTM with GloVe and BERT (fine-tuned).
+3. **Noise Injection:** Simulated typos and synonyms.
+4. **Evaluation:** Accuracy, Precision, Recall, F1, ROC-AUC.
+5. **Class Handling:** Class Weighting instead of SMOTE/RUS.
 
 ---
 
-## 📊 Results Summary
+## 📈 Results
 
 | Model     | Clean F1 | Noisy F1 | AUC (Clean) | AUC (Noisy) |
 |-----------|----------|----------|-------------|-------------|
@@ -65,121 +59,35 @@ Transformer models like **BERT** are leading the NLP space — but how do they h
 
 ---
 
-## ⚙️ Environment & Setup Instructions
+## 🧩 Real-World Applications
+
+- **Chatbots & Moderation Tools**
+- **Adversarial Input Detection**
+- **Social Media Sentiment Analysis**
+- **Robust NLP APIs for Industry Use**
+
+---
+
+## 🔗 How to Leverage This Repository
 
 ```bash
-# Clone repository
 git clone https://github.com/JaminUbuntu/IBOK_NLP_2-CW.git
 cd IBOK_NLP_2-CW
-
-# Create virtual environment
-python -m venv env
-source env/bin/activate  # On Windows: env\Scripts\activate
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### `requirements.txt` includes:
-- `transformers`
-- `torch`
-- `tensorflow`
-- `nlpaug`
-- `scikit-learn`
-- `wandb`
-- `seaborn`, `pandas`, `matplotlib`
-
----
-
-## 🗂️ Folder Structure
-
-```
-IBOK_NLP_2-CW/
-├── IBOK_NLP_DL_CW.ipynb
-├── README.md
-├── requirements.txt
-├── /outputs
-├── /models
-└── /assets
-```
-
----
-
-## 🧠 Model Interpretability
-
-- Confusion Matrices
-- Word Clouds
-- F1/AUC Comparisons
-- KDE Tweet Length Analysis
-- Integration-ready for SHAP/LIME
-
----
-
-## 🖼️ Sample Outputs & Screenshots
-
-Add your figures in `/assets` and link here (example below):
-
-- ![Confusion Matrix](assets/confusion_clean.png)
-- ![AUC Comparison](assets/auc_comparison.png)
-
----
-
-## 🧬 Model Persistence
-
-```python
-# Save model
-torch.save(model.state_dict(), 'bert_model.pt')
-
-# Load model
-model.load_state_dict(torch.load('bert_model.pt'))
-model.eval()
-```
-
----
-
-## 💬 Contribution Guidelines
-
-1. Fork the repo.
-2. Create a feature branch.
-3. Commit changes.
-4. Open a pull request.
-
-Follow PEP8 and include docstrings.
-
----
-
-## 🎓 Academic Context
-
-Part of the coursework for **7120CEM – Natural Language Processing** at **Coventry University**.
+- Main Notebook: `IBOK_NLP_DL_CW.ipynb`
+- Analyze clean vs noisy performance
+- Confusion Matrices and Visualizations in `/assets` and `/outputs`
 
 ---
 
 ## 🧭 Future Directions
 
-- Add multilingual BERT/RoBERTa.
-- Use adversarial training.
-- Implement T5, XLNet, DistilBERT.
-- Add explainability via SHAP/LIME.
-- Introduce cross-domain noise tests.
-
----
-
-## 📛 Badge Flair
-
-![Python](https://img.shields.io/badge/python-3.9-blue.svg)
-![BERT](https://img.shields.io/badge/model-BERT-orange)
-![Colab](https://img.shields.io/badge/platform-Colab-green)
-![Status: Completed](https://img.shields.io/badge/status-completed-brightgreen)
-
----
-
-## ❓ FAQ / Known Issues
-
-- **Q:** Why does BiLSTM perform worse under noise?
-  **A:** GloVe is static; it lacks contextual awareness.
-
-- **Q:** Can I run this without GPU?
-  **A:** BERT training requires a GPU. Use Colab.
+- Add multilingual/multitask variants like RoBERTa or T5
+- Explore back-translation or paraphrasing augmentation
+- Deploy adversarial training pipelines
+- Use LIME/SHAP for explainability
 
 ---
 
@@ -188,3 +96,87 @@ Part of the coursework for **7120CEM – Natural Language Processing** at **Cove
 ```text
 Ibok, B. (2025). Robustness of Transformer-Based Models Against Linguistic Noise and Adversarial Inputs in Social Media Sentiment Tasks. Coventry University.
 ```
+
+---
+
+## 🎓 Academic Context
+
+This project was developed for the **7120CEM – Natural Language Processing** module at **Coventry University**.
+
+---
+
+## 📬 Contact
+
+**Author:** Benjamin Ibok  
+**Institution:** Coventry University  
+**Email:** ibokb@coventry.ac.uk  
+**Personal Email:** benjaminsibok@gmail.com  
+**GitHub:** [JaminUbuntu](https://github.com/JaminUbuntu)
+
+---
+
+## ⚙️ Environment Setup
+
+```bash
+python -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+```
+
+Dependencies:
+- Python ≥ 3.8
+- `transformers`, `torch`, `tensorflow`
+- `sklearn`, `nlpaug`, `wandb`, `matplotlib`, `seaborn`, `pandas`
+
+---
+
+## 📊 Visualizations & Evaluation
+
+Visual insights:
+- WordClouds for noisy tokens
+- Clean vs Noisy Confusion Matrices
+- KDE plot of tweet length distributions
+- ROC & AUC curves
+
+---
+
+## 🤝 Contribution Guidelines
+
+1. Fork the repo
+2. `git checkout -b your-feature`
+3. `git commit -m "Add feature"`
+4. `git push origin your-feature`
+5. Open a Pull Request
+
+Follow PEP8 and document your code.
+
+---
+
+## 💾 Model Saving
+
+```python
+torch.save(model.state_dict(), 'bert_model.pt')
+model.load_state_dict(torch.load('bert_model.pt'))
+model.eval()
+```
+
+---
+
+## 🏷️ Project Badges
+
+![Python](https://img.shields.io/badge/python-3.9-blue.svg)
+![Colab](https://img.shields.io/badge/platform-Colab-green)
+![Model: BERT](https://img.shields.io/badge/model-BERT-orange)
+![Status: Completed](https://img.shields.io/badge/status-completed-brightgreen)
+
+---
+
+## ❓ FAQ
+
+- **Q: Can this run on CPU only?**  
+  A: BiLSTM, yes. BERT requires GPU (Google Colab preferred).
+
+- **Q: Why does BERT outperform BiLSTM under noise?**  
+  A: BERT uses contextual embeddings, unlike static GloVe.
+
+---

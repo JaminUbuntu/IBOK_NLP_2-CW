@@ -113,7 +113,6 @@ This project was developed for the **7120CEM – Natural Language Processing** m
 **Institution:** Coventry University  
 **Email:** ibokb@coventry.ac.uk  
 **Personal Email:** benjaminsibok@gmail.com  
-**GitHub:** [JaminUbuntu](https://github.com/JaminUbuntu)
 
 ---
 

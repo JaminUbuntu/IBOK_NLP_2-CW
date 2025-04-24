@@ -139,7 +139,7 @@ Visual insights:
 - KDE plot of tweet length distributions
 - ROC & AUC curves
 
-![Experimental Framework](/framework.png)
+![Experimental Framework](/framework.jpg)
 
 ---
 
